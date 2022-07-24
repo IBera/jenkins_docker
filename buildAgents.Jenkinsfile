@@ -1,11 +1,12 @@
-parameters {
-	string(name: 'imageName', description: 'Name of the image to build')
-	string(name: 'tag', description: 'Name of the image to build')
-}
+
 
 def dockerImage;
 
 node('docker'){
+	parameters {
+		string(name: 'imageName', description: 'Name of the image to build')
+		string(name: 'tag', description: 'Name of the image to build')
+	}
 	stage('SCM'){
 		checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/IBera/jenkins_docker.git']]]);
 	}
