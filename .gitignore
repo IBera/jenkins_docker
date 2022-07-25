@@ -51,3 +51,6 @@ Thumbs.db
 # Jenkins
 jenkins_configuration/
 
+# Azure
+azure/
+
